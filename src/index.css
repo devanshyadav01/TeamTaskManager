@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 25% 98%;
+    --foreground: 224 30% 12%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 224 30% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 224 30% 12%;
+
+    --primary: 243 75% 59%;
+    --primary-foreground: 0 0% 100%;
+    --primary-glow: 252 87% 71%;
+
+    --secondary: 220 20% 96%;
+    --secondary-foreground: 224 30% 18%;
+
+    --muted: 220 16% 95%;
+    --muted-foreground: 220 10% 46%;
+
+    --accent: 243 75% 96%;
+    --accent-foreground: 243 75% 40%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 76% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+
+    --info: 217 91% 60%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 220 16% 91%;
+    --input: 220 16% 91%;
+    --ring: 243 75% 59%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 224 20% 30%;
+    --sidebar-primary: 243 75% 59%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 243 75% 96%;
+    --sidebar-accent-foreground: 243 75% 40%;
+    --sidebar-border: 220 16% 93%;
+    --sidebar-ring: 243 75% 59%;
+
+    --gradient-primary: linear-gradient(135deg, hsl(243 75% 59%), hsl(265 85% 65%));
+    --gradient-soft: linear-gradient(135deg, hsl(243 75% 96%), hsl(265 85% 96%));
+    --gradient-mesh: radial-gradient(at 20% 20%, hsl(243 75% 59% / 0.15) 0px, transparent 50%),
+                     radial-gradient(at 80% 0%, hsl(265 85% 65% / 0.12) 0px, transparent 50%),
+                     radial-gradient(at 0% 80%, hsl(217 91% 60% / 0.10) 0px, transparent 50%);
+
+    --shadow-sm: 0 1px 2px 0 hsl(224 30% 12% / 0.04);
+    --shadow-md: 0 4px 12px -2px hsl(224 30% 12% / 0.06), 0 2px 4px -2px hsl(224 30% 12% / 0.04);
+    --shadow-lg: 0 12px 32px -8px hsl(224 30% 12% / 0.10), 0 4px 8px -4px hsl(224 30% 12% / 0.06);
+    --shadow-glow: 0 8px 32px -8px hsl(243 75% 59% / 0.35);
+
+    --transition-smooth: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .dark {
+    --background: 224 30% 7%;
+    --foreground: 220 20% 96%;
+
+    --card: 224 28% 10%;
+    --card-foreground: 220 20% 96%;
+
+    --popover: 224 28% 10%;
+    --popover-foreground: 220 20% 96%;
+
+    --primary: 252 87% 71%;
+    --primary-foreground: 224 30% 7%;
+    --primary-glow: 265 85% 75%;
+
+    --secondary: 224 25% 14%;
+    --secondary-foreground: 220 20% 96%;
+
+    --muted: 224 25% 14%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 243 50% 20%;
+    --accent-foreground: 252 87% 85%;
+
+    --destructive: 0 75% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 152 70% 45%;
+    --warning: 38 92% 55%;
+    --info: 217 91% 65%;
+
+    --border: 224 25% 16%;
+    --input: 224 25% 16%;
+    --ring: 252 87% 71%;
+
+    --sidebar-background: 224 30% 8%;
+    --sidebar-foreground: 220 15% 75%;
+    --sidebar-primary: 252 87% 71%;
+    --sidebar-primary-foreground: 224 30% 7%;
+    --sidebar-accent: 224 25% 14%;
+    --sidebar-accent-foreground: 252 87% 85%;
+    --sidebar-border: 224 25% 14%;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', system-ui, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-card/70 backdrop-blur-xl border border-border/60;
+    box-shadow: var(--shadow-md);
+  }
+  .stat-card {
+    @apply bg-card border border-border/60 rounded-xl p-5 transition-all hover:-translate-y-0.5;
+    box-shadow: var(--shadow-sm);
+  }
+  .stat-card:hover { box-shadow: var(--shadow-lg); }
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .mesh-bg { background-image: var(--gradient-mesh); }
+}
